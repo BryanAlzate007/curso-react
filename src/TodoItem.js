@@ -7,3 +7,4 @@ function TodoItem() {
       </li>
     );
   }
+  export { TodoItem };
