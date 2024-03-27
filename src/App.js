@@ -1,5 +1,4 @@
-import './TodoItem';
-import './App.css';
+import './App.css'
 import { TodoItem } from './TodoItem';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
@@ -8,10 +7,11 @@ import { CreateTodoButton } from './CreateTodoButon';
 
 function App() {
   return (
-    <div className="App">
-      <TodoCounter />
-      <TodoSearch />
+  <>
+    <TodoCounter />
+    <TodoSearch />
 
+    <div className='Todo'>
       <TodoList >
         <TodoItem />
         <TodoItem />
@@ -20,6 +20,7 @@ function App() {
 
       <CreateTodoButton />
     </div> 
+  </>
   );
 }
 

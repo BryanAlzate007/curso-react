@@ -1,6 +1,12 @@
 h1 {
+    color: blueviolet;
     font-size: 24px;
     text-align: center;
     margin: 0;
     padding: 48px;
+    font-weight: normal;
+}
+
+.TodoCounter span {
+    font-weight: bold;
 }
