@@ -7,16 +7,16 @@ import { TodoList } from './TodoList';
 import { CreateTodoButton } from './CreateTodoButon';
 
 const defaultTodos = [
-  {text: 'Primera tarea', completed: true},
-  {text: 'Tomar el curso de trading', completed: false},
-  {text: 'tercera tarea', completed: false}
+  {text: 'Primera tarea', completed: false },
+  {text: 'Tomar el curso de trading', completed: false },
+  {text: 'tercera tarea', completed: true }
 ];
 
 function App() {
   const [todos, setTodos] = React.useState(defaultTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
-  const completedTodos = todos.filter(todo => todo.completed).length;
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
   const searchedTodos = todos.filter(
@@ -36,6 +36,17 @@ function App() {
     setTodos(newTodos);
   };
 
+  const deleteTodo = (text) => {
+    console.log("se elimino elemento")
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
+
+
   return ( 
   <>
     <TodoCounter completed={completedTodos} total={totalTodos} />
@@ -52,6 +63,7 @@ function App() {
             text={todo.text}
             completed={todo.completed}
             onCompleted={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
           />
         ))}
       </TodoList>
